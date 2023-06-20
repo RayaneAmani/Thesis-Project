@@ -1,1 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="www.psmmmmmmmmmmmmmmm.com">
+  <Class name="MakerDAO" contract="true">
+    <ownedBehavior xsi:type="Class" name="diagram" contract="true"/>
+    <OwnedOperation name="emprunterDAI" function="true" payable="true" visibility="public"/>
+    <OwnedOperation name="creerDAI" function="true" visibility="public"/>
+    <OwnedOperation name="EnvoyerDAI" function="true" payable="true" visibility="public"/>
+    <ownedProperty name="quantitÃ©_Ethereum" variable="true" payable="true" type="Real" visibility="public"/>
+    <ownedProperty name="addresse" variable="true" type="address" visibility="public"/>
+    <ownedProperty name="myActivity" variable="true" type="Activity" visibility="public"/>
+    <ownedProperty name="montant_DAI" variable="true" type="Real" visibility="public"/>
+    <ownedProperty name="seuils_confirmation" variable="true" type="Real" visibility="public"/>
+  </Class>
+  <Class name="Ethereum" contract="true">
+    <OwnedOperation name="verouillerEtheruem" function="true" type="boolean" visibility="public"/>
+    <ownedProperty name="adresse" variable="true" type="address" visibility="public"/>
+  </Class>
+  <Class name="DAI" contract="true">
+    <OwnedOperation name="verifierSuffisamentGarantie" function="true" type="boolean" visibility="public"/>
+    <ownedProperty name="adresse" variable="true" type="address" visibility="public"/>
+    <ownedProperty name="ratio_Garantie" variable="true" type="Real" visibility="public"/>
+  </Class>
+  <Class name="Activity" contract="true">
+    <OwnedOperation name="sourceEmprunter" function="true" visibility="public"/>
+    <OwnedOperation name="sourceDemandeVerifierGarantie" function="true" visibility="public"/>
+    <OwnedOperation name="cibleDemandeVerifierGarantie" function="true" visibility="public"/>
+    <OwnedOperation name="cibleVerifierGarantieSuffisamment" function="true" visibility="public"/>
+    <OwnedOperation name="cibleDecision" function="true" visibility="public"/>
+    <OwnedOperation name="sourceDemandeVerouillerEtheruem" function="true" visibility="public">
+      <ConstraintedElement name="atDecision" specification="atDecision" modifier="true"/>
+    </OwnedOperation>
+    <OwnedOperation name="cibleDemandeVerouillerEtheruem" function="true" visibility="public"/>
+    <OwnedOperation name="sourceCreerDAI" function="true" visibility="public"/>
+    <OwnedOperation name="cibleCreerDAI" function="true" visibility="public"/>
+    <OwnedOperation name="cibleEnvoyerDAI" function="true" visibility="public"/>
+    <OwnedOperation name="verifierGarantieSuffisamment" function="true" visibility="public"/>
+    <OwnedOperation name="demandeVerifierGarantie" function="true" visibility="public"/>
+    <OwnedOperation name="emprunterDAI" function="true" visibility="public"/>
+    <OwnedOperation name="demandeVerouillerEtheruem" function="true" visibility="public"/>
+    <OwnedOperation name="verouillerEtheruem" function="true" visibility="public"/>
+    <OwnedOperation name="creerDAI" function="true" visibility="public"/>
+    <OwnedOperation name="envoyerDAI" function="true" visibility="public"/>
+    <ownedProperty name="addresse" variable="true" type="address" visibility="public"/>
+  </Class>
 
+</xmi:XMI>
