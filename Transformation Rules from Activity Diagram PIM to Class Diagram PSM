@@ -1,0 +1,34 @@
+module activi2;
+create OUT : psm from IN : pim;
+
+rule TransformActivityToClass {
+    from
+        s: pim!Activity
+    to
+        t: psm!Class (
+       name <- 'Activity',
+       OwnedOperation <- s.edges,
+	   OwnedOperation <-s.nodes
+		)}
+
+
+rule TransformActivityEdgeToFunction {
+    from
+        s: pim!ActivityEdge
+    to
+        t: psm!Operation (
+        name <- s.name,
+        function <- (s.source<>pim!InitialNode),
+		constructor <- (s.source=pim!InitialNode)
+			) }
+
+rule TransformActionToFunction {
+    from
+        s: pim!Action
+    to
+        t: psm!Operation (
+         name<- s.name,
+		 function <- true
+          
+		
+)}
