@@ -1,0 +1,135 @@
+<Class xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="www.model.com"
+    xsi:schemaLocation="www.model.com ../meta/Pimmmmmmmm.ecore"
+    name="MakerDAO">
+  <ownedBehavior
+      xsi:type="Activity"
+      name="diagram"
+      specification="//@nestedclass.0/@OwnedOperation.0">
+    <edges source="//@ownedBehavior.0/@nodes.0"
+        target="//@ownedBehavior.0/@nodes.3"
+        name="sourceEmprunter"/>
+    <edges source="//@ownedBehavior.0/@nodes.3"
+        target="//@ownedBehavior.0/@nodes.2"
+        name="sourceDemandeVerifierGarantie"/>
+    <edges source="//@ownedBehavior.0/@nodes.2"
+        target="//@ownedBehavior.0/@nodes.1"
+        name="cibleDemandeVerifierGarantie"/>
+    <edges source="//@ownedBehavior.0/@nodes.1"
+        target="//@ownedBehavior.0/@nodes.8"
+        name="cibleVerifierGarantieSuffisamment"/>
+    <edges source="//@ownedBehavior.0/@nodes.8"
+        target="//@ownedBehavior.0/@nodes.9"
+        name="cibleDecision"/>
+    <edges source="//@ownedBehavior.0/@nodes.8"
+        target="//@ownedBehavior.0/@nodes.4"
+        name="sourceDemandeVerouillerEtheruem"
+        guard="YES"/>
+    <edges source="//@ownedBehavior.0/@nodes.4"
+        target="//@ownedBehavior.0/@nodes.5"
+        name="cibleDemandeVerouillerEtheruem"/>
+    <edges source="//@ownedBehavior.0/@nodes.5"
+        target="//@ownedBehavior.0/@nodes.6"
+        name="sourceCreerDAI"/>
+    <edges source="//@ownedBehavior.0/@nodes.6"
+        target="//@ownedBehavior.0/@nodes.7"
+        name="cibleCreerDAI"/>
+    <edges source="//@ownedBehavior.0/@nodes.7"
+        target="//@ownedBehavior.0/@nodes.10"
+        name="cibleEnvoyerDAI"/>
+    <nodes xsi:type="InitialNode"
+        outgoing="//@ownedBehavior.0/@edges.0"/>
+    <nodes xsi:type="Action"
+        outgoing="//@ownedBehavior.0/@edges.3"
+        incoming="//@ownedBehavior.0/@edges.2"
+        name="verifierGarantieSuffisamment"/>
+    <nodes xsi:type="Action"
+        outgoing="//@ownedBehavior.0/@edges.2"
+        incoming="//@ownedBehavior.0/@edges.1"
+        name="demandeVerifierGarantie"/>
+    <nodes xsi:type="Action"
+        outgoing="//@ownedBehavior.0/@edges.1"
+        incoming="//@ownedBehavior.0/@edges.0"
+        name="emprunterDAI"/>
+    <nodes xsi:type="Action"
+        outgoing="//@ownedBehavior.0/@edges.6"
+        incoming="//@ownedBehavior.0/@edges.5"
+        name="demandeVerouillerEtheruem"/>
+    <nodes xsi:type="Action"
+        outgoing="//@ownedBehavior.0/@edges.7"
+        incoming="//@ownedBehavior.0/@edges.6"
+        name="verouillerEtheruem"/>
+    <nodes xsi:type="Action"
+        outgoing="//@ownedBehavior.0/@edges.8"
+        incoming="//@ownedBehavior.0/@edges.7"
+        name="creerDAI"/>
+    <nodes xsi:type="Action"
+        outgoing="//@ownedBehavior.0/@edges.9"
+        incoming="//@ownedBehavior.0/@edges.8"
+        name="envoyerDAI"/>
+    <nodes xsi:type="DecisionNode"
+        outgoing="//@ownedBehavior.0/@edges.4 //@ownedBehavior.0/@edges.5"
+        incoming="//@ownedBehavior.0/@edges.3"/>
+    <nodes xsi:type="FlowFinalNode"
+        incoming="//@ownedBehavior.0/@edges.4"/>
+    <nodes xsi:type="FinalNode"
+        incoming="//@ownedBehavior.0/@edges.9"/>
+  </ownedBehavior>
+  <OwnedOperation
+      name="emprunterDAI"
+      pay="true"
+      visibility="public"/>
+  <OwnedOperation
+      name="creerDAI"
+      visibility="public"/>
+  <OwnedOperation
+      name="EnvoyerDAI"
+      pay="true"
+      visibility="public"/>
+  <ownedProperty
+      name="quantité_Ethereum"
+      pay="true"
+      visibility="public"
+      type="Real"/>
+  <ownedProperty
+      name="addresse"
+      visibility="public"
+      type="address"/>
+  <ownedProperty
+      name="montant_DAI"
+      visibility="public"
+      type="Real"/>
+  <ownedProperty
+      name="seuils_confirmation"
+      visibility="public"
+      type="Real"/>
+  <nestedclass
+      name="Ethereum">
+    <OwnedOperation
+        name="verouillerEtheruem"
+        method="//@ownedBehavior.0"
+        visibility="public"
+        type="boolean"/>
+    <ownedProperty
+        name="adresse"
+        visibility="public"
+        type="address"/>
+  </nestedclass>
+  <nestedclass
+      name="DAI">
+    <OwnedOperation
+        name="verifierSuffisamentGarantie"
+        visibility="public"
+        type="boolean"/>
+    <ownedProperty
+        name="adresse"
+        visibility="public"
+        type="address"/>
+    <ownedProperty
+        name="ratio_Garantie"
+        visibility="public"
+        type="Real"/>
+  </nestedclass>
+</Class>
