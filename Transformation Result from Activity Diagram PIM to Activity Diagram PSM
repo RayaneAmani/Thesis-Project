@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Activity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="www.psmmmmmmmmmmmmmmm.com">
+  <edges source="//@nodes.0" target="//@nodes.3" name="sourceEmprunter"/>
+  <edges source="//@nodes.3" target="//@nodes.2" name="sourceDemandeVerifierGarantie"/>
+  <edges source="//@nodes.2" target="//@nodes.1" name="cibleDemandeVerifierGarantie"/>
+  <edges source="//@nodes.1" target="//@nodes.8" name="cibleVerifierGarantieSuffisamment"/>
+  <edges source="//@nodes.8" target="//@nodes.9" name="cibleDecision"/>
+  <edges source="//@nodes.8" target="//@nodes.4" name="sourceDemandeVerouillerEtheruem" guard="YES"/>
+  <edges source="//@nodes.4" target="//@nodes.5" name="cibleDemandeVerouillerEtheruem"/>
+  <edges source="//@nodes.5" target="//@nodes.6" name="sourceCreerDAI"/>
+  <edges source="//@nodes.6" target="//@nodes.7" name="cibleCreerDAI"/>
+  <edges source="//@nodes.7" target="//@nodes.10" name="cibleEnvoyerDAI"/>
+  <nodes xsi:type="InitialNode" outgoing="//@edges.0"/>
+  <nodes xsi:type="Action" outgoing="//@edges.3" incoming="//@edges.2" name="verifierGarantieSuffisamment"/>
+  <nodes xsi:type="Action" outgoing="//@edges.2" incoming="//@edges.1" name="demandeVerifierGarantie"/>
+  <nodes xsi:type="Action" outgoing="//@edges.1" incoming="//@edges.0" name="emprunterDAI"/>
+  <nodes xsi:type="Action" outgoing="//@edges.6" incoming="//@edges.5" name="demandeVerouillerEtheruem"/>
+  <nodes xsi:type="Action" outgoing="//@edges.7" incoming="//@edges.6" name="verouillerEtheruem"/>
+  <nodes xsi:type="Action" outgoing="//@edges.8" incoming="//@edges.7" name="creerDAI"/>
+  <nodes xsi:type="Action" outgoing="//@edges.9" incoming="//@edges.8" name="envoyerDAI"/>
+  <nodes xsi:type="DecisionNode" outgoing="//@edges.4 //@edges.5" incoming="//@edges.3"/>
+  <nodes xsi:type="FlowFinalNode" incoming="//@edges.4"/>
+  <nodes xsi:type="FinalNode" incoming="//@edges.9"/>
+</Activity>
