@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pim" nsURI="www.model.com">
+  <eAnnotations source="Author:amani.&#xA;Created:07/05/2023 16:10.&#xA;Title:.&#xA;Comment:.&#xA;"
+      references="#/"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//BehavioredClassifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedOperation" ordered="false"
+        upperBound="-1" eType="#//Operation" containment="true" eOpposite="#//Operation/class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedProperty" ordered="false"
+        upperBound="-1" eType="#//Property" containment="true" eOpposite="#//Property/class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedclass" ordered="false"
+        upperBound="-1" eType="#//Class" containment="true" eOpposite="#//Class/nestingClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestingClass" ordered="false"
+        eType="#//Class" eOpposite="#//Class/nestedclass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" ordered="false"
+        eType="#//DataType" eOpposite="#//DataType/ownedproperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="class" ordered="false"
+        eType="#//Class" eOpposite="#//Class/ownedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsQuery" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedparameter" ordered="false"
+        upperBound="-1" eType="#//Parameter" containment="true" eOpposite="#//Parameter/Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" ordered="false"
+        eType="#//DataType" eOpposite="#//DataType/OwnedOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="class" ordered="false"
+        eType="#//Class" eOpposite="#//Class/OwnedOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="method" ordered="false"
+        upperBound="-1" eType="#//Behavior" eOpposite="#//Behavior/specification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConstrainedElement" ordered="false"
+        upperBound="-1" eType="#//Constraint" eOpposite="#//Constraint/Constraint_of_ConstrainedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" ordered="false"
+        eType="#//Operation" eOpposite="#//Operation/ownedparameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behavior" ordered="false"
+        eType="#//Behavior" eOpposite="#//Behavior/ownedparameter"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Behavior" eSuperTypes="#//Class">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedparameter" ordered="false"
+        upperBound="-1" eType="#//Parameter" containment="true" eOpposite="#//Parameter/behavior"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifierbehavior" ordered="false"
+        eType="#//BehavioredClassifier" eOpposite="#//BehavioredClassifier/ownedBehavior"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="BehavioredClassifier" ordered="false"
+        eType="#//BehavioredClassifier" eOpposite="#//BehavioredClassifier/classifierBehavior"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specification" ordered="false"
+        eType="#//Operation" eOpposite="#//Operation/method"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="#//Behavior">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" ordered="false"
+        upperBound="-1" eType="#//ActivityEdge" containment="true" eOpposite="#//ActivityEdge/Activity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" ordered="false"
+        upperBound="-1" eType="#//ActivityNode" containment="true" eOpposite="#//ActivityNode/Activity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BehavioredClassifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedBehavior" ordered="false"
+        upperBound="-1" eType="#//Behavior" containment="true" eOpposite="#//Behavior/classifierbehavior"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifierBehavior" ordered="false"
+        eType="#//Behavior" eOpposite="#//Behavior/BehavioredClassifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedOperation" ordered="false"
+        upperBound="-1" eType="#//Operation" containment="true" eOpposite="#//Operation/datatype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedproperty" ordered="false"
+        upperBound="-1" eType="#//Property" containment="true" eOpposite="#//Property/datatype"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//DataType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedLiteral" ordered="false"
+        upperBound="-1" eType="#//EnumerationLiteral" containment="true" eOpposite="#//EnumerationLiteral/enumeration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationLiteral">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" ordered="false"
+        lowerBound="1" eType="#//Enumeration" eOpposite="#//Enumeration/ownedLiteral"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="address"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityEdge">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Activity" ordered="false"
+        lowerBound="1" eType="#//Activity" eOpposite="#//Activity/edges"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
+        lowerBound="1" eType="#//ActivityNode" eOpposite="#//ActivityNode/outgoing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" ordered="false"
+        lowerBound="1" eType="#//ActivityNode" eOpposite="#//ActivityNode/incoming"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlNode" eSuperTypes="#//ActivityNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Activity" ordered="false"
+        lowerBound="1" eType="#//Activity" eOpposite="#//Activity/nodes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" ordered="false"
+        upperBound="-1" eType="#//ActivityEdge" eOpposite="#//ActivityEdge/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" ordered="false"
+        upperBound="-1" eType="#//ActivityEdge" eOpposite="#//ActivityEdge/target"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityFinalNode" eSuperTypes="#//ControlNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//ExecutableNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specification" ordered="false"
+        lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Constraint_of_ConstrainedElement"
+        ordered="false" upperBound="-1" eType="#//Operation" eOpposite="#//Operation/ConstrainedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition_of_guard" ordered="false"
+        eType="#//ActivityEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowFinalNode" eSuperTypes="#//ActivityFinalNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DecisionNode" eSuperTypes="#//ControlNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialNode" eSuperTypes="#//ControlNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MergeNode" eSuperTypes="#//ControlNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutableNode" eSuperTypes="#//ActivityNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FinalNode" eSuperTypes="#//ActivityFinalNode"/>
+  <eSubpackages name="PimProfile"/>
+</ecore:EPackage>
