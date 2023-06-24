@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.4.0 <0.8.0;
+contract MakerDAO
+{
+	Real payable public quantitÃÂÃÂÃÂÃÂ©_Ethereum ;
+	Real  public seuils_confirmation ;
+	address  public addresse ;
+	Activity  public myActivity ;
+	Real  public montant_DAI ;
+	
+	
+	constructor(address _contractAddress) {
+        myActivity = Activity(_contractAddress);
+    }
+
+
+
+    function  emprunterDAI (  ) public   payable  returns (  ) 
+  {
+	}
+
+    function  creerDAI (  ) public   returns (  ) 
+  {
+	}
+
+    function  EnvoyerDAI (  ) public   payable  returns (  ) 
+  {
+	}
