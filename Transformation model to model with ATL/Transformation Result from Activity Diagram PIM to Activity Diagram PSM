@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Activity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="www.psmmmmmmmmmmmmmmm.com">
+  <edges source="//@nodes.5" target="//@nodes.3" name="sourceDemandeVerifierGarantie"/>
+  <edges source="//@nodes.3" target="//@nodes.1" name="cibleDemandeVerifierGarantie"/>
+  <edges source="//@nodes.1" target="//@nodes.2" name="cibleDecision" guard="NO"/>
+  <edges source="//@nodes.1" target="//@nodes.4" name="sourceDemandeVerouillerEtheruem" guard="YES"/>
+  <edges source="//@nodes.4" target="//@nodes.0" name="cibleDemandeVerouillerEtheruem"/>
+  <nodes xsi:type="FinalNode" incoming="//@edges.4"/>
+  <nodes xsi:type="DecisionNode" outgoing="//@edges.2 //@edges.3" incoming="//@edges.1"/>
+  <nodes xsi:type="FlowFinalNode" incoming="//@edges.2"/>
+  <nodes xsi:type="Action" outgoing="//@edges.1" incoming="//@edges.0" name="demandeVerifierGarantie"/>
+  <nodes xsi:type="Action" outgoing="//@edges.4" incoming="//@edges.3" name="demandeVerouillerEtheruem"/>
+  <nodes xsi:type="InitialNode" outgoing="//@edges.0"/>
+</Activity>
