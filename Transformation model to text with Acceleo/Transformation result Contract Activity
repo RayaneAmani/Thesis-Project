@@ -1,0 +1,55 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.4.0 <0.8.0;
+contract Activity
+{
+	address  public adresse ;
+	
+	
+	modifier atDecision() {
+        require(keccak256(bytes(guard)) == keccak256(bytes("yes")) ) ;
+        _;
+    }
+    
+    
+
+    function  cibleDemandeVerouillerEtheruem (  ) public   returns (  ) 
+  {
+	}
+	
+
+    function  cibleDemandeVerifierGarantie (  ) public   returns (  ) 
+  {
+	 sourceDemandeVerouillerEtheruem (  );
+	}
+	
+
+    function  sourceDemandeVerifierGarantie (  ) public   returns (  ) 
+  {
+       demandeVerouillerEtheruem (  );
+	}
+
+
+    function  demandeVerouillerEtheruem (  ) public   returns (  ) 
+  {    
+       cibleDemandeVerouillerEtheruem (  );
+	}
+
+
+    function  sourceDemandeVerouillerEtheruem (  ) public atDecision()  returns (  ) 
+  {
+	 demandeVerouillerEtheruem (  )
+	 }
+
+
+    function  cibleDecision (  ) public   returns (  ) 
+  {
+	}
+
+
+    function  demandeVerifierGarantie (  ) public   returns (  ) 
+  {  
+      cibleDemandeVerifierGarantie (  );
+	}
+
+  
+}
