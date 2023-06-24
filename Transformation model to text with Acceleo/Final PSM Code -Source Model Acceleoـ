@@ -5,20 +5,20 @@
     <OwnedOperation name="emprunterDAI" function="true" payable="true" visibility="public"/>
     <OwnedOperation name="creerDAI" function="true" visibility="public"/>
     <OwnedOperation name="EnvoyerDAI" function="true" payable="true" visibility="public"/>
-    <ownedProperty name="quantitÃÂÃÂÃÂÃÂ©_Ethereum" variable="true" payable="true" type="Real" visibility="public"/>
+    <ownedProperty name="quantitÃÂÃÂÃÂÃÂ©_Ethereum" variable="true" payable="true" type="uint" visibility="public"/>
     <ownedProperty name="addresse" variable="true" type="address" visibility="public"/>
     <ownedProperty name="myActivity" variable="true" type="Activity" visibility="public"/>
-    <ownedProperty name="montant_DAI" variable="true" type="Real" visibility="public"/>
-    <ownedProperty name="seuils_confirmation" variable="true" type="Real" visibility="public"/>
+    <ownedProperty name="montant_DAI" variable="true" type="uint" visibility="public"/>
+    <ownedProperty name="seuils_confirmation" variable="true" type="uint" visibility="public"/>
   </Class>
   <Class name="Ethereum" contract="true">
-    <OwnedOperation name="verouillerEtheruem" function="true" type="boolean" visibility="public"/>
+    <OwnedOperation name="verouillerEtheruem" function="true" type="bool" visibility="public"/>
     <ownedProperty name="adresse" variable="true" type="address" visibility="public"/>
   </Class>
   <Class name="DAI" contract="true">
-    <OwnedOperation name="verifierSuffisamentGarantie" function="true" type="boolean" visibility="public"/>
+    <OwnedOperation name="verifierSuffisamentGarantie" function="true" type="bool" visibility="public"/>
     <ownedProperty name="adresse" variable="true" type="address" visibility="public"/>
-    <ownedProperty name="ratio_Garantie" variable="true" type="Real" visibility="public"/>
+    <ownedProperty name="ratio_Garantie" variable="true" type="uint" visibility="public"/>
   </Class>
   <Class name="Activity" contract="true">
     <OwnedOperation name="sourceDemandeVerifierGarantie" function="true" visibility="public"/>
