@@ -58,7 +58,7 @@
       name="quantité_Ethereum"
       pay="true"
       visibility="public"
-      type="Real"/>
+      type="uint"/>
   <ownedProperty
       name="adresse"
       visibility="public"
@@ -66,17 +66,17 @@
   <ownedProperty
       name="montant_DAI"
       visibility="public"
-      type="Real"/>
+      type="uint"/>
   <ownedProperty
       name="seuils_confirmation"
       visibility="public"
-      type="Real"/>
+      type="uint"/>
   <nestedclass
       name="Etheruem">
     <OwnedOperation
         name="verouillerEtheruem"
         visibility="public"
-        type="boolean"/>
+        type="bool"/>
     <ownedProperty
         name="adresse"
         visibility="public"
@@ -87,11 +87,11 @@
     <OwnedOperation
         name="verifierSuffisamentGarantie"
         visibility="public"
-        type="boolean"/>
+        type="bool"/>
     <ownedProperty
         name="ratio_Garantie"
         visibility="public"
-        type="Real"/>
+        type="uint"/>
     <ownedProperty
         name="adresse"
         visibility="public"
