@@ -1,0 +1,92 @@
+module transf;
+create OUT : psm from IN : pim;
+
+
+rule TransformClass {
+    from
+        s: pim!Class
+    to
+        t: psm!Class (
+        name <- s.name,
+        contract <- true,
+        OwnedOperation <- s.OwnedOperation,
+		ownedBehavior<- s.ownedBehavior,
+        ownedProperty <- s.ownedProperty
+		
+     )
+	 }
+
+rule TransformPropertyToVariable {
+    from
+        s: pim!Property
+    to
+        t: psm!Property (
+        name <- s.name,
+        variable <- true,
+		visibility<-s.visibility,
+		type<-s.type,
+        payable <- s.pay
+		
+    )
+}
+
+rule TransformOperationToFunction {
+    from
+        s: pim!Operation
+		
+    to
+        t: psm!Operation (
+        name <- s.name,
+        function <- true,
+        payable <- s.pay,		
+		visibility<-s.visibility,
+		type<-s.type,
+		IsQuery<-s.IsQuery,
+		ownedParameter<-s.ownedparameter
+		
+		
+    )
+	}
+
+
+rule TransformParameter {
+    from
+        s: pim!Parameter
+    to
+        t: psm!Parameter (
+        name <- s.name,
+		type<-s.type
+		
+)}
+
+rule TransformDataType {
+    from
+        s: pim!DataType
+    to
+        t: psm!DataType (
+       
+        OwnedOperation <- s.OwnedOperation,
+        ownedProperty <- s.ownedproperty
+     )
+	 }
+rule TransformEnumeration {
+    from
+        s: pim!Enumeration
+    to
+        t: psm!Enumeration (
+       
+        ownedLiteral <- s.ownedLiteral,
+		enum <- true
+     )
+	 }
+
+rule TransformConstraint {
+    from
+        s: pim!Constraint
+    to
+        t: psm!Constraint (
+        name <- s.name,
+        Constraint_of_ConstraintedElement <- s.Constraint_of_ConstrainedElement,
+		modifier <- true
+     )
+	 }
