@@ -7,7 +7,6 @@
 [file (aClass.name.concat('.sol'), false, 'UTF-8')]
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.0 <0.8.0;
-[for (co : Class | aClass.eClass()->filter(Class))]
 [if (aClass.contract)]
 contract [aClass.name/]
 {
@@ -16,16 +15,8 @@ contract [aClass.name/]
   [/for]
 
   [for (o : Operation | aClass.OwnedOperation)] 
-    [if (o.function)]function [elseif (o.constructor)]constructor[/if]
-	 [o.name/] (
-    [for (pr : Parameter | o.ownedParameter) separator(', ')?()]
-    [pr.type/] [pr.name/]                      
-    [/for])
-    [o.visibility/] 
-    [for (mod : Constraint | o.ConstraintedElement)] [mod.name/] [/for]
-    [if (o.payable)]payable[/if]
-    [if (o.IsQuery)]view[/if]
-    returns( [o.type/]) {
+    [if (o.function)]function [elseif (o.constructor)]constructor[/if] [o.name/] ([for (pr : Parameter | o.ownedParameter) separator(', ')]  [pr.type/] [pr.name/][/for]) [o.visibility/] [for (mod : Constraint | o.ConstraintedElement)]  [mod.name/]  [/for] [if (o.payable)] payable [/if][if (o.IsQuery)] view [/if] returns ( [o.type/] ) 
+  {
 	[for (b : Behavior | o.method)]
 		
 	[/for]
@@ -41,7 +32,7 @@ contract [aClass.name/]
 	}
   [/for]
   
-  [for (m : Constraint | aClass.eClass()->filter(Constraint))]
+  [for (m : Constraint | aClass->filter(Constraint))]
 	modifier [m.name/](){
 		[m.Constraint_of_ConstraintedElement/]
         
@@ -49,27 +40,21 @@ contract [aClass.name/]
   [/for]
 
 
-  [for (cn : Class | aClass.eClass()->filter(Class))]
-	struct [cn.name/]{
-		[for (p : Property | cn.ownedProperty) ]
+  [if (aClass.struct)]
+	struct [aClass.name/]{
+		[for (p : Property | aClass.ownedProperty) ]
 		[p.type/] [p.name/];
         [/for]
 	}
-  [/for]
+  [/if]
 
   
-  [for (cn : Class | aClass.eClass()->filter(Class))]
-	struct[cn.name/]{
-		[for (p : Property | cn.ownedProperty) ]
-		[p.type/] [p.name/];
-        [/for]
-	}
-  [/for]
+ 
   
 }
 
 
 [/if]
-[/for]
 [/file]
 [/template]
+
